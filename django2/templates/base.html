@@ -1,0 +1,15 @@
+<!-- we gonna use same header code in multiple files or called extending templates
+	we can use some  built in tags for template or made our own -->
+
+<header> 
+	<a href = "{% url 'home' %}">home page </a> |
+	<a href = "{% url 'about' %}">about </a>
+</header>
+
+{% block content %}
+{% endblock content %}
+
+<!-- block tag is called content can can be overwritten by child template via inheritance
+	and endblock is optional but write -->
+
+
