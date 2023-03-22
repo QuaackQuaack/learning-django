@@ -1,0 +1,11 @@
+
+<h1> this is home page for message</h1>
+<ul>  <!-- ul is for unodered list and li is for order list 
+ListView return us context variable, called object_list, now we are going to get that using for and store txt as post.txt-->
+	{% for post in all_posts_list %} 
+	<li>{{ post.text }}</li> 
+	{% endfor %}
+
+</ul>
+
+
