@@ -1,0 +1,16 @@
+{% load static %} <!-- this is to load static file like css -->
+<html>
+	<head><title> blog post </title></head>
+	<link rel="stylesheet" href="{% static 'css/base.css' %}">
+	<body>
+		<header>
+			<h1><a href="{% url 'home' %}">Django blog</a></h1>
+		</header>
+		<div>
+			{% block content %}
+			{% endblock content %}
+		</div>
+	</body>
+</html>
+
+
