@@ -12,7 +12,7 @@ class PostModelsTest(TestCase):
         expected_object_name = f'{post.text}'
         self.assertEqual(expected_object_name,'just a text')
 
-class HomePageView(TestCase):
+class HomePageViewTest(TestCase):
     def setUp(self):
         Post.objects.create(text= 'this is another text')
 

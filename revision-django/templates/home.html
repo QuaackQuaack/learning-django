@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	{% for content in all_post_views  %}
+	<div class = 'post-entry'>
+		<h2><a href ="{% url 'post_detail' content.pk %}">{{ content.title }}</a></h2>
+		<p>{{ content.body }}</p>
+	</div>
+	{% endfor %}
+{% endblock content %}
