@@ -4,5 +4,9 @@
 <div>
 	<h2>{{ all_page_data.title }}</h2>
 	<p>{{  all_page_data.body }}</p>
+</div>
+
+<a href="{% url 'page_edit' all_page_data.pk %}">to edit the page </a><br>
+<a href="{% url 'post_delete' all_page_data.pk %}">+to delte the page</a>
 
 {% endblock content %}

@@ -14,7 +14,7 @@ class Post(models.Model):
         return self.title
 #to tell django where to direct user after successfully submitting form
     def get_absolute_url(self): 
-        return reverse('post_detail', args=[str(self.id)])
+        return reverse('post_detail', args=[str(self.id)]) #it return string value
     #here reverse is used to get view name --> url 
     # reverse help use optimize our site , if there is anychange in URL in future. 
     # from post_detail , our URL get added post/int:pk , will change to post/2, post/3 and so on. 
