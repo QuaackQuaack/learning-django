@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> New post </h1>
+<form action="" method = "post">{% csrf_token %} 
+<!---csrf token protect from cross site scripting or faking referall.--> 
+	{{ form.as_p }} <!-- meaning chai form will be printed as paragraph -->
+	<input type = 'submit' value = 'Save'> <!--types of type is text,password,submit-->
+</form>
+{% endblock content %}
