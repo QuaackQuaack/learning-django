@@ -8,11 +8,12 @@ from .models import Post
 class BlogTests(TestCase):
 
     def setUp(self):
+        #At first, you need to check super user
         self.user = get_user_model().objects.create_user(
                 username = 'testuser',
                 email = 'test@email.com',
                 password = 'secret' )
-        
+       #after that, you need to check model  
         self.post = Post.objects.create(
                 title = 'A good title',
                 body = 'nice body content',
@@ -35,11 +36,8 @@ class BlogTests(TestCase):
 
     def test_post_detail_view(self):
         response = self.client.get('/post/1/')
-        no_response = self.client.get('post/100000/') #this is to set limit
+        no_response = self.client.get('/post/100000/') #this is to set limit
         self.assertEqual(response.status_code, 200)
         self.assertEqual(no_response.status_code, 404)
         self.assertContains(response, 'A good title')
         self.assertTemplateUsed(response, 'post_detail.html')
-
-
-
