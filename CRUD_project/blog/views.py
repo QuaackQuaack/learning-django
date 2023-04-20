@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Post
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import CreateView,UpdateView,DeleteView #there are four type of edit 
+from django.views.generic.edit import CreateView, UpdateView, DeleteView #there are four type of edit 
 #simply following CRUD principal i.e. Create, view, update, delete.  
 
 from django.urls import reverse_lazy #this is opposite of reverse()
