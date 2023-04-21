@@ -19,5 +19,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
-    path('accounts/',include('django.contrib.auth.urls'))#this give us both models and views for login
+    path('accounts/',include('django.contrib.auth.urls')),#this give us both models and views for login
+    path('accounts/', include('account.urls'))#the order of urls matters cuz django read file top to bottom
+    #here when we request accounts/signup first it wil check in auth then in acccounts app.
 ]
