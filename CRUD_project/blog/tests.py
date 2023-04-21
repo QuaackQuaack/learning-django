@@ -2,7 +2,7 @@
 #self.client exist in TestCase only.
 #self.client create httpRequest object and passes it through request process
 from django.test import TestCase
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model #this will return current active user instead of using USER
 from django.urls import reverse
 
 
@@ -69,8 +69,8 @@ class BlogTests(TestCase):
 
 
     def test_delete_blog(self):
-        response = self.client.post(reverse('post_delete', args = '1')),
-        self.assertEqual(response.status_code, 302)
+        response = self.client.post(reverse('post_delete', args = '1')) #adding comma at last create error
+        self.assertEqual(response.status_code, 302) #idk why wants to knoww
 
 
 
