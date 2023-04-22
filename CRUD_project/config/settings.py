@@ -36,14 +36,17 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic', #whitenoise installed 
     'django.contrib.staticfiles',
     'blog',
     'account'
 ]
-
+#middleware is a bridge betn two parts of a program that enables communication betn them.
+#midddleware order is important 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware' #white noise middleware
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -119,7 +122,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
+STATIC_URL = '/static/'  #URL used to referring to static files located in STATIC_ROOT
+STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))] #additional location of static files
+STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))#absolute path to collect static files for deployment
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  #in line 126
+#a file storage engine uses when collecting static file with collect static 
+
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home' 
