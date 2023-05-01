@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ng_d(ka_3ng98fntj#_bb(@e)2&w3d&+slnakmguadzxtt5a&0'
+SECRET_KEY = 'wa4m5a(oop3c7)e@j59%45$tixb@$+rr=)bp6j-tl+)l_b7-8x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -36,17 +36,13 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'whitenoise.runserver_nostatic', #whitenoise installed, instead of this we can also use -nostatic while running server. 
     'django.contrib.staticfiles',
-    'blog',
-    'account'
+    'accounts'
 ]
-#middleware is a bridge betn two parts of a program that enables communication betn them.
-#midddleware order is important 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware' #white noise middleware
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -59,7 +55,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [str(BASE_DIR.joinpath('templates'))],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,15 +118,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'  #URL used to referring to static files located in STATIC_ROOT
-STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))] #additional location of static files
-STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))#absolute path to collect static files for deployment
-#STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage' #line 130
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'#line 131
-#a file storage engine uses when collecting static file with collect static 
-#this compress and hashes files so they can be cached forever safely and if we only want compress but not
-#caching behaviour then we can use 'CompressedStaticFilesStorage'
-#in django 4.2 it is written in STORAGES
-
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home' 
+Sturtle.pensize(10)TATIC_URL = '/static/'
+AUTH_USER_MODEL = 'accounts.CustomUser' #to use our custom user model instead of built-in
+                                        #user model. 
+# we name it as accounts.CustomUser , since it exists within our accounts app .
