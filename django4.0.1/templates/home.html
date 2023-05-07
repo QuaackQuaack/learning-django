@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for page in damn_bro %}
+<h2><a href = "{% url 'page' page.pk %}">{{ page.title }}</a></h2>
+<p>{{ page.body}} </p>
+{% empty %}
+<p> no blog to show </p>
+{% endfor %}
+
+{% endblock content  %}
