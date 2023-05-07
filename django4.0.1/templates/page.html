@@ -4,4 +4,6 @@
 <h2>{{ pagekodetail.title }}</h2>
 <p>{{ pagekodetail.body }}</p>
 
+<h2><a href="{% url 'update' pagekodetail.pk %}">Want to update this page?</a></h2>
+<br><h2><a href = "{% url 'delete' pagekodetail.pk %}">Want to delete this page?</a></h2>
 {% endblock content %}
