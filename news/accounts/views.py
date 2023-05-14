@@ -1,8 +1,7 @@
 from django.shortcuts import render
-from django.contrib.auth.form import CreationForm , ChangeForm 
+from django.contrib.auth.models import AbstractUser
 
 # Create your views here.
-class UserCreationForm(CreationForm):
-    form_name = 
-    template_name = 
-    success_url = 
+
+class CustomUser(AbstractUser):
+    age = models.PositiveIntegerField(null= True, blank = True)
