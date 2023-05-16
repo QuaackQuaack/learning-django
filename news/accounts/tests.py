@@ -16,7 +16,7 @@ class SignUpPageTest(TestCase):
         self.assertTemplateUsed(response, 'registration/signup.html')
 
     def test_signup_form(self):
-        response = self.client.post(
+        response = self.client.post( #here post means request
                 reverse("signup"),
                 {
                     "username":"testuser",
