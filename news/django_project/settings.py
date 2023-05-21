@@ -138,5 +138,14 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRIPSY_TEMPLATE_PACK = 'bootstrap5'
 
 #currently for testing purpose we are using backend console of django
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #to get email at console
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' #to send email through actual SMTP
+DEFAULT_FROM_MAIL = 'your_custom_email_account' #to send automate msg, contain custom email
+EMAIL_HOST = 'smtp.sendgrid.net' #write 3rd party app used to send email
+EMAIL_HOST_USER = 'apikey' #username to use for smtp server of EMAIL_HOST(line 144)
+EMAIL_HOST_PASSWORD = 'Password of EMAIL_HOST'
+EMAIL_PORT = 587 #there are many email port like 25(traditionally used), 587 (should use with TLS encryption) 465, 2525( alternative of 587)
+EMAIL_USE_TLS = True
+
+
 
