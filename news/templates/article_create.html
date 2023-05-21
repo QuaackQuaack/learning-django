@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}New blog {% endblock title %}
+
+{% block content %}
+<form action = '' method = 'post'>{% csrf_token %}
+	{{ form|crispy }}
+	<button class='btn btn-info ml-2' type='submit'>make</button>
+</form>
+{% endblock content %}
+

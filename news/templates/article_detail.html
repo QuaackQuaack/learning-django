@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Blogging detail {% endblock title %}
+
+{% block content %}
+<div class='article-detail'>
+	<h2>{{ articledetail.title }}</h2>
+	<p> by {{ articledetail.author }}</p>
+	<p> {{ articledetail.body }}</p>
+</div>
+{% endblock content %}
+
