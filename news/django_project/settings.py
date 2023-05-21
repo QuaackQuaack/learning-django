@@ -44,7 +44,8 @@ INSTALLED_APPS = [
 
     #local app
     'accounts.apps.AccountsConfig',
-    'pages.apps.PagesConfig'
+    'pages.apps.PagesConfig',
+    'articles.apps.ArticlesConfig'
 ]
 
 MIDDLEWARE = [
@@ -113,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Canada/Central' # used to stampe our article
 
 USE_I18N = True
 
@@ -132,7 +133,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-AUTH_USER_MODEL = 'accounts.CustomUser'
+AUTH_USER_MODEL = 'accounts.CustomUser' #Authenticate user model just like get user model
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRIPSY_TEMPLATE_PACK = 'bootstrap5'
