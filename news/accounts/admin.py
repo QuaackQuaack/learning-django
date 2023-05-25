@@ -15,7 +15,7 @@ class CustomUserAdmin(UserAdmin):
     add_fieldsets = UserAdmin.add_fieldsets + ((None, {"fields":("age",)}),)
     #add_fieldssets, fields to be used when creating a user 
 #add_fieldssets are fields used when creating a user like in signup
-# note we didn't add fieldsets for email because it is already built in constract to age.
+# note we didn't add fieldsets for email because it is already built, in constract to age.
 
 admin.site.register(CustomUser, CustomUserAdmin)
 
