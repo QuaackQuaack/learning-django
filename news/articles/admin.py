@@ -4,7 +4,7 @@ from .models import Article, Comment
 # Register your models here.
 
 #there are two inline tabularinline and stackeinline , I am using tabular one 
-class CommentInline(admin.TabularInLine):
+class CommentInline(admin.TabularInline):
     model = Comment
     extra = 0
 

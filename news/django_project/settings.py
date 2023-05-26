@@ -25,12 +25,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-l*mf(t0d*c8226)cy5(^jomwyei55q5u$%3l2_vc2241qn=6f$'
+#SECRET_KEY = 'django-insecure-l*mf(t0d*c8226)cy5(^jomwyei55q5u$%3l2_vc2241qn=6f$' #This is secret key used in production
+SECRET_KEY = env.str("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True #True while working in local machine 
+#DEBUG = False #while pushing to production 
+DEBUG = env.bool("DEBUG",default = False) #to read our debug from .env file
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = [".herukoapp.com","localhost","127.0.0.1"] #this allow us to host in both localhost, 127.0.0.1 and 3rd party system
 
 
 # Application definition
@@ -41,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    "whitenoise.runserver_nostatic", #whitenoie installed 
     'django.contrib.staticfiles',
 
     #third party app
@@ -56,6 +61,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware", #this should me always upside commonmiddleware
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -87,12 +93,17 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
+#this one is default setup of database in django 
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}
+}"""
+#database for production site is 
+DATABASE = {
+        "default": env.dj_db_url("DATABASE_URL")
+        }
 
 
 # Password validation
@@ -133,6 +144,10 @@ LOGOUT_REDIRECT_URL = 'home'
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIR = [BASE_DIR / "static"]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+#STATICFIELS_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage' #default without whitenoise
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
