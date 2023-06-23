@@ -11,5 +11,8 @@ class HomePageView(View):
 class TemplatePageView(TemplateView):
     template_name = 'home.html'
 
-def greet(request, name):
-    return render(request, "../templates/greet.html", {"name": name.capitalize()})
+class GreetPageView(View):
+        def get(self,request, name):
+            context = {
+                        "name": name.capitalize() } 
+            return render(request, "../templates/greet.html", context)

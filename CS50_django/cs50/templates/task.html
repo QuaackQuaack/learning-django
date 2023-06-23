@@ -1,0 +1,14 @@
+<!DOCTYPE html >
+<html>
+	<head><title>Task </title></head>
+	<body>
+		{% for task in all_task %}
+		<ul>
+			{{ task.task }}
+		</ul>
+		{% endfor %}
+		<a href ="{% url 'new_task' %}">+add New task</a>
+	</body>
+</html>
+
+
