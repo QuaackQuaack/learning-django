@@ -1,6 +1,7 @@
 #note ;- we don't need to check inbuilt function of django like str, get_absolute_url
 #self.client exist in TestCase only.
 #self.client create httpRequest object and passes it through request process
+
 from django.test import TestCase
 from django.contrib.auth import get_user_model #this will return current active user instead of using USER
 from django.urls import reverse

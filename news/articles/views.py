@@ -5,7 +5,7 @@ from django.views.generic import ListView, DetailView, FormView
 from django.views import View  #master view of all other views
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 
-from djanog.views.generic.detail import SingleObjectMixin #helps in obeject retrieving and helps in URl parameter handling
+from django.views.generic.detail import SingleObjectMixin #helps in obeject retrieving and helps in URl parameter handling
 
 from .forms import CommentForm 
 
